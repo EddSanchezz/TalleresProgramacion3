@@ -1,4 +1,5 @@
 import java.util.logging.Logger;
+//xD
 public class Logger1 {
 
         private static final Logger logger = Logger.getLogger(Logger1.class.getName());
