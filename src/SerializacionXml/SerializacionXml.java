@@ -9,13 +9,12 @@ public class SerializacionXml {
 
         Persistencia files = new Persistencia();
 
-        Persona p; // = new SerializacionXml.Persona("Lisa","Jimenez","1094");
-
-        //files.XmlSerializacion("persona.xml",p);
+        Persona p = new Persona("Lisa","Jimenez","1094");
 
         try {
-            p= (Persona) files.XmlDeserializable("persona.xml");
-            System.out.println(p.getNombre() + " " + p.getApellido());
+            files.XmlSerializacion("personas.xml", p);
+            // p= (Persona) files.XmlDeserializable("persona.xml");
+            // System.out.println(p.getNombre() + " " + p.getApellido());
         } catch (FileNotFoundException e){
             e.printStackTrace();
         }

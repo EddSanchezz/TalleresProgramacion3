@@ -10,12 +10,14 @@ public class Persistencia {
 
 
     public void XmlSerializacion(String nombre, Object object) throws FileNotFoundException{
+        System.out.printf(((Persona)object).getNombre());
+
         XMLEncoder encoder = new XMLEncoder(new FileOutputStream(nombre));
         encoder.writeObject(object);
         encoder.close();
     }
 
-    public Object xmlDeserializar(String nombre) throws FileNotFoundException{
+    public Object XmlDeserializable(String nombre) throws FileNotFoundException{
 
         XMLDecoder XD = new XMLDecoder(new FileInputStream(nombre));
         Object ob = XD.readObject();
