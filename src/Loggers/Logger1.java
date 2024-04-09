@@ -1,3 +1,5 @@
+package Loggers;
+
 import java.util.logging.Logger;
 //xD
 public class Logger1 {

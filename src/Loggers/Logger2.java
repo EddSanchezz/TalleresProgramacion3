@@ -1,4 +1,5 @@
-import java.util.Arrays;
+package Loggers;
+
 import java.util.Random;
 import java.util.Scanner;
 import java.util.logging.Logger;
