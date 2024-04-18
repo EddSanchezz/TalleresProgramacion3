@@ -54,5 +54,7 @@ public class Archivo {
 
          FileWriter escribir = new FileWriter(archivo);
          escribir.write(mensaje);
+         escribir.flush();
+         escribir.close();
     }
 }

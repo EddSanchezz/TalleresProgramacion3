@@ -4,13 +4,18 @@ public class Restaurante {
     private String nombre;
     private String estado;
     private String direccion;
-    private int codigo;
+    private String codigo;
+    private String ciudad;
 
-    public Restaurante(String nombre, String estado, String direccion, int codigo) {
+    
+
+
+    public Restaurante(String nombre, String direccion, String ciudad, String estado, String codigo) {
         this.nombre = nombre;
         this.estado = estado;
         this.direccion = direccion;
         this.codigo = codigo;
+        this.ciudad = ciudad;
     }
 
     public String getNombre() {
@@ -37,11 +42,23 @@ public class Restaurante {
         this.direccion = direccion;
     }
 
-    public int getCodigo() {
+    public String getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(int codigo) {
+    public void setCodigo(String codigo) {
         this.codigo = codigo;
+    }
+
+
+
+    public String getCiudad() {
+        return ciudad;
+    }
+
+
+
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
     }
 }
