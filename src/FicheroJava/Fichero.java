@@ -3,13 +3,11 @@ package FicheroJava;
 import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Fichero {
 
     public static void revisarArchivo (String ruta){
         File fichero = new File(ruta);
-        String linea;
         String lectura;
         String escritura;
 
@@ -40,15 +38,17 @@ public class Fichero {
     public static void escanearArchivo(String ruta) throws IOException {
         File archivo = new File(ruta);
         FileReader miFiledReader = new FileReader(archivo);
-        BufferedReader miBufferReader = new BufferedReader(miFiledReader);
+        try (BufferedReader miBufferReader = new BufferedReader(miFiledReader)) {
+            ArrayList <Restaurante> ListaRest = new ArrayList<>();
+            String linea;
+            while((linea = miBufferReader.readLine()) != null){
+                String[] restaurante = linea.split(",");
+                int codigo = Integer.parseInt(restaurante[3]);
+                ListaRest.add( new Restaurante(restaurante[0],restaurante[1],restaurante[2], codigo));
 
-        ArrayList <Restaurante> ListaRest = new ArrayList<>();
-        String linea;
-        while((linea = miBufferReader.readLine()) != null){
-            String[] restaurante = linea.split(",");
-            int codigo = Integer.parseInt(restaurante[3]);
-            ListaRest.add( new Restaurante(restaurante[0],restaurante[1],restaurante[2], codigo));
-
+            }
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
         }
     }
 }
