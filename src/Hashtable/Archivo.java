@@ -1,8 +1,7 @@
 package Hashtable;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import javax.swing.*;
+import java.io.*;
 import java.util.*;
 
 public class Archivo {
@@ -24,7 +23,7 @@ public class Archivo {
         return lineas;
     }
 
-    public static void contarPalabrasRepetidas(ArrayList<String> palabras) {
+    public static void contarPalabrasRepetidas(ArrayList<String> palabras) throws IOException {
         Map<String, Integer> contadorPalabras = new HashMap<>();
 
         for (String palabra : palabras) {
@@ -41,7 +40,19 @@ public class Archivo {
             }
         }
 
-        System.out.println("La palabra más repetida es: " + palabraMasRepetida);
-        System.out.println("Se repite " + maxRepetida + " veces.");
+        String mensaje = "La palabra más repetida es: " + palabraMasRepetida + "Se repite " + maxRepetida + " veces.";
+
+         String ruta2 = "C:\\Users\\metzu\\Documents\\palabraRepetida.txt";
+         File archivo = new File(ruta2);
+         try{
+             PrintWriter salida = new PrintWriter(archivo);
+             salida.close();
+             JOptionPane.showMessageDialog(null, "archivo mensaje de palabras repetidas guardados con exito");
+         } catch (FileNotFoundException e) {
+             throw new RuntimeException(e);
+         }
+
+         FileWriter escribir = new FileWriter(archivo);
+         escribir.write(mensaje);
     }
 }
