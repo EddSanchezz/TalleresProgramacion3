@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Prueba {
 
     public static void main(String[] args) {
-        String ruta = "C:\\Users\\metzu\\Documents\\Repositorios\\TalleresProgramacion3\\src\\FicheroJava\\Restaurants.csv";
+        String ruta = "C:\\Users\\metzu\\Documents\\TallerArchivosFicherosJava\\Restaurants.csv";
         try {
             ArrayList<Restaurante> ListaRest = Fichero.organizarRestaurantes(ruta);
             //ArrayList<Integer> ListaPos = Fichero.showDataZipCode(ListaRest);

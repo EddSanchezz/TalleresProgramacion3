@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 public class App {
 
     public static void main(String[] args) {
-        String ruta = "C:\\Users\\metzu\\Documents\\Repositorios\\TalleresProgramacion3\\src\\FicheroJava\\Restaurants.csv";
+        String ruta = "C:\\Users\\metzu\\IdeaProjects\\TalleresProgramacion3\\src\\FicheroJava\\Restaurants.csv";
         try {
             Fichero.verificarArchivo(ruta);
             ArrayList<Restaurante> ListaRest = Fichero.organizarRestaurantes(ruta);

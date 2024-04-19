@@ -43,29 +43,32 @@ public class Fichero {
             
             String linea;
             while((linea = miBufferReader.readLine()) != null){
-                String resultado = "";
-                boolean dentroComillas = false;
-                for (int i = 0; i < linea.length(); i++){
-                    char caracter = linea.charAt(i);
-                    if (caracter == '\"'){
-                        dentroComillas = !dentroComillas;
-                    }else if (caracter == ',' && dentroComillas) {
-                        resultado += ' ';
-                    }else{
-                        resultado += caracter;
-                    }
-                }
-                linea = resultado;
+                StringBuilder resultado = getStringBuilder(linea);
+                linea = resultado.toString();
                 String[] restaurante = linea.split(",");
                 ListaRest.add( new Restaurante(restaurante[0],restaurante[1],restaurante[2], restaurante[3],restaurante[4]));
 
             }
-        } catch (NumberFormatException e) {
-            e.printStackTrace();
         }
 
         return ListaRest;
 
+    }
+
+    private static StringBuilder getStringBuilder(String linea) {
+        StringBuilder resultado = new StringBuilder();
+        boolean dentroComillas = false;
+        for (int i = 0; i < linea.length(); i++){
+            char caracter = linea.charAt(i);
+            if (caracter == '\"'){
+                dentroComillas = !dentroComillas;
+            }else if (caracter == ',' && dentroComillas) {
+                resultado.append(' ');
+            }else{
+                resultado.append(caracter);
+            }
+        }
+        return resultado;
     }
 
     public static ArrayList<Integer> showDataZipCode(ArrayList<Restaurante> ListaRest){
