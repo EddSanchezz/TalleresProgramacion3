@@ -1,4 +1,4 @@
-package co.edu.uniquindio.poo;
+package Sockets;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 public class ClientSocket {
     
     public static void main(String[] args) {
-        try(Socket socket = new Socket("localhost", 8090)){
+        try(Socket socket = new Socket("localhost", 9999)){
             DataOutputStream data = new DataOutputStream(socket.getOutputStream());
             String message;
             do{

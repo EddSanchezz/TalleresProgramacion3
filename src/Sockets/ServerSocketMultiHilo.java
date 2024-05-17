@@ -1,4 +1,4 @@
-package co.edu.uniquindio.poo;
+package Sockets;
 
 import java.io.IOException;
 import java.net.ServerSocket;
