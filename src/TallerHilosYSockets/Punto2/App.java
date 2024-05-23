@@ -1,7 +1,7 @@
 package TallerHilosYSockets.Punto2;
 
 
-public class HttpClient {
+public class App {
     public static void main(String[] args) {
         
     }
