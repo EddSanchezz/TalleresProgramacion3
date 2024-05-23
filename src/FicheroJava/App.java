@@ -8,8 +8,8 @@ import javax.swing.JOptionPane;
 public class App {
 
     public static void main(String[] args) throws IOException {
-        String ruta = "C:\\Users\\metzu\\Documents\\Repositorios\\TalleresProgramacion3\\src\\FicheroJava\\Restaurants.csv";
-        String ruta2 = "C:\\Users\\metzu\\Documents\\Repositorios\\TalleresProgramacion3\\src\\FicheroJava\\Restaurants2.csv";
+        String ruta = "src\\FicheroJava\\Restaurants.csv";
+        String ruta2 = "src\\FicheroJava\\Restaurants2.csv";
         ArrayList<Restaurante> ListaRest = Fichero.organizarRestaurantesEnTexto(ruta);
 
         //ejercicio1: verificar si el archivo existe, y dar informacion de este
