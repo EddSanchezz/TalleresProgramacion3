@@ -9,9 +9,10 @@ import java.net.UnknownHostException;
 import javax.swing.JOptionPane;
 
 public class Cliente {
+    @SuppressWarnings("unused")
     public static void main(String[] args) {
 
-        final String host = "192.168.1.24";
+        final String host = "192.168.195.180";
         final int puerto = 5000;
 
         DataInputStream in; //informacion que ingresa
@@ -28,6 +29,7 @@ public class Cliente {
 
                 mensaje = JOptionPane.showInputDialog("Ingrese un mensaje para el servidor");
                 out.writeUTF(mensaje);
+                System.out.println(in.readUTF());
             }
 
             sc.close();

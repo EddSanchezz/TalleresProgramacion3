@@ -4,10 +4,10 @@ import java.io.*;
 import java.net.*;
 
 public class Servidor {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         
             ServerSocket servidor = null;
-            Socket sc = null;
+            Socket sc = null; //cliente 
             final int puerto = 5000;
             DataInputStream in; //informacion que ingresa
             DataOutputStream out; //informacion que sale
@@ -25,13 +25,14 @@ public class Servidor {
                     out = new DataOutputStream(sc.getOutputStream());
 
                     
+                    
                     while(mensaje != null){
                         mensaje = in.readUTF();
                         System.out.println(mensaje);
+                        //envia el mensaje al cliente
+                        out.writeUTF("hola desde servidor");
                     }
                     
-
-                    out.writeUTF("hola mundo desde el servidor");
 
                     sc.close(); 
                     System.out.println("cliente desconectado");
