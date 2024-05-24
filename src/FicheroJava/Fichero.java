@@ -11,6 +11,8 @@ public class Fichero {
         String lectura;
         String escritura;
 
+
+
         if(fichero.canRead()){
             lectura = "se puede leer";
         }else{

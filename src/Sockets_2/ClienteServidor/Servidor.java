@@ -3,6 +3,8 @@ package Sockets_2.ClienteServidor;
 import java.io.*;
 import java.net.*;
 
+import javax.swing.JOptionPane;
+
 public class Servidor {
     public static void main(String[] args) {
         
@@ -13,12 +15,12 @@ public class Servidor {
             DataOutputStream out; //informacion que sale
             try{
                 servidor = new ServerSocket(puerto);
-                System.out. println("servidor iniciado, esperando conexion");
+                JOptionPane.showMessageDialog(null,"servidor iniciado, esperando conexion", "cliente", 3);
 
 
                 while(true){
                     sc = servidor.accept();
-                    System.out.println("cliente contectado al servidor");
+                    JOptionPane.showMessageDialog(null , "cliente contectado al servidor","chat", 2);
 
                     String mensaje = "";
                     in = new DataInputStream(sc.getInputStream());
@@ -28,14 +30,14 @@ public class Servidor {
                     
                     while(mensaje != null){
                         mensaje = in.readUTF();
-                        System.out.println(mensaje);
+                        JOptionPane.showMessageDialog(null, mensaje);
                         //envia el mensaje al cliente
-                        out.writeUTF("hola desde servidor");
+                        //out.writeUTF("hola desde servidor");
                     }
                     
 
                     sc.close(); 
-                    System.out.println("cliente desconectado");
+                    JOptionPane.showMessageDialog(null, "cliente desconectado");
 
                     
                 }

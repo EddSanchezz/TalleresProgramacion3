@@ -1,4 +1,4 @@
-package Sockets_2.ClienteServidor;
+package Examen2;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -12,7 +12,7 @@ public class Cliente {
     @SuppressWarnings("unused")
     public static void main(String[] args) {
 
-        final String host = "192.168.195.180";
+        final String host = "172.20.10.5";
         final int puerto = 5000;
 
         DataInputStream in; //informacion que ingresa
@@ -21,15 +21,20 @@ public class Cliente {
         try {
             Socket sc = new Socket(host, puerto);
 
-            String mensaje = "";
+            String nombreArchivo = "";
+            int prio= 0;
+            String texto="";
 
-            while(mensaje!= null){
+            for(int i= 1; i<=5; i++){
                 in = new DataInputStream(sc.getInputStream());
                 out = new DataOutputStream(sc.getOutputStream());
 
-                mensaje = JOptionPane.showInputDialog("Ingrese un mensaje para el servidor");
-                out.writeUTF(mensaje);
-                //JOptionPane.showMessageDialog(null, in.readUTF());
+                nombreArchivo = JOptionPane.showInputDialog("Ingrese el nombre del archivo a copiar y la prioridad separados por coma");
+                out.writeUTF(nombreArchivo);
+
+
+                texto = in.readUTF();
+                EscrituraArchivo.EscribirArchivo(texto,nombreArchivo,prio);
             }
 
             sc.close();
